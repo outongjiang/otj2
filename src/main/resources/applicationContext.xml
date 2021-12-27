@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+<!--    <bean id="UserDaoImpl" class="Dao.UserDaoImpl" init-method="init" destroy-method="destroy"></bean>-->
+<!--<bean id="UserDaoImpl" class="Dao.UserDaoFactory" factory-method="getUserDaoImpl"></bean>-->
+<!--    <bean id="factory" class="Dao.UserDaoFactory"></bean>-->
+<!--    <bean id="UserDaoImpl" factory-bean="factory" factory-method="getUserDaoImpl"></bean>-->
+<!--    -->
+    <!--        <property name="userDao" ref="UserDao"></property>-->
+<!--    <bean id="UserDao" class="Dao.UserDaoImpl"></bean>-->
+<!--    <bean id="username" class="java.lang.String"></bean>-->
+<!--    <bean id="UserService" class="Controller.UserServiceImpl">-->
+<!--    <constructor-arg value="张三" name="username"></constructor-arg>-->
+<!--        <constructor-arg value="18" name="age"></constructor-arg>-->
+
+<!--    </bean>-->
+<!--    <bean id="User1" class="Controller.User">-->
+<!--        <property name="name" value="令狐冲"></property>-->
+<!--        <property name="age" value="20"></property>-->
+<!--    </bean>-->
+<!--    <bean id="User2" class="Controller.User">-->
+<!--        <property name="name" value="张无忌"></property>-->
+<!--        <property name="age" value="21"></property>-->
+<!--    </bean>-->
+<!--    <bean id="User3" class="Controller.User">-->
+<!--        <property name="name" value="张三丰"></property>-->
+<!--        <property name="age" value="100"></property>-->
+<!--    </bean>-->
+<!--    <bean id="UserServiceImpl" class="Controller.UserServiceImpl">-->
+<!--        <property name="list" >-->
+<!--            <list>-->
+<!--                <ref bean="User1"></ref>-->
+<!--                <ref bean="User2"></ref>-->
+<!--                <ref bean="User3"></ref>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property  name="map">-->
+<!--            <map>-->
+<!--                <entry key="笑傲江湖" value-ref="User1"></entry>-->
+<!--                <entry key="倚天屠龙记" value-ref="User2"></entry>-->
+<!--                <entry key="射雕英雄传" value-ref="User3"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="1">one</prop>-->
+<!--                <prop key="2">two</prop>-->
+<!--                <prop key="3">three</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <import resource="applicationContext.xml"></import>-->
+<!--        <bean id="Factory" class="com.alibaba.druid.pool.DruidDataSourceFactory"></bean>-->
+<!--        <bean id="DataSource" factory-bean="Factory" factory-method=""></bean>-->
+
+    <context:property-placeholder location="classpath:druid.properties"/>
+
+    <bean id="DruidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driverClassName}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${username1}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="maxActive" value="${maxActive}"></property>
+        <property name="initialSize" value="${initialSize}"></property>
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>
+<context:component-scan base-package="Controller"></context:component-scan>
+    <context:component-scan base-package="Dao"></context:component-scan>
+    <context:component-scan base-package="Util"></context:component-scan>
+
+    <import resource="applicationContext.xml"></import>
+</beans>
+

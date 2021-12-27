@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<usernames>
+    <class className="Dao.UserDaoImpl" classId="UserDao" scope=""></class>
+    <class className="Dao.EmployeeDaoImpl" classId="EmployeeDao" scope=""></class>
+</usernames>
